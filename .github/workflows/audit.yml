@@ -7,7 +7,6 @@ on:
     branches: [main]
 
 jobs:
-
   audit:
     runs-on: ubuntu-20.04
     steps:
@@ -22,22 +21,22 @@ jobs:
       run: go mod verify
 
     - name: Build
-      run: go build -v ./tests...
+      run: go build -v ./tests
 
     - name: Run go vet
-      run: go vet ./tests...
+      run: go vet ./...
 
     - name: Install staticcheck
       run: go install honnef.co/go/tools/cmd/staticcheck@latest
 
     - name: Run staticcheck
-      run: staticcheck ./tests...
+      run: staticcheck ./...
 
     - name: Install golint
       run: go install golang.org/x/lint/golint@latest
 
     - name: Run golint
-      run: golint ./tests...
+      run: golint ./...
 
     - name: Run tests
       run: go test -race -vet=off ./tests...
