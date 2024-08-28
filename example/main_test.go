@@ -1,13 +1,14 @@
-File: main_test.go
+File: main.go
 package main
 
-import "testing"
+import "fmt"
 
-func Test_sayHello(t *testing.T) {
-    name := "Bob"
-    want := "Hello Bob"
+func main() {
+	msg := sayHello("Alice")
+	fmt.Println(msg)
+}
 
-    if got := sayHello(name); got != want {
-        t.Errorf("hello() = %q, want %q", got, want)
-    }
+func sayHello(name string) string {
+	// Измените это на "Hello %s" вместо "Hi %s".
+	return fmt.Sprintf("Hello %s", name)
 }
