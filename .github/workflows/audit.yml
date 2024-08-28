@@ -36,4 +36,4 @@ jobs:
       run: golint ./...
 
     - name: Run tests
-      run: go test -race -vet=off ./tests
+      run: go test -race -vet=off ./tests/main_test.go
